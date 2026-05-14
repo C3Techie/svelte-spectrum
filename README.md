@@ -57,24 +57,33 @@ To ensure a Lighthouse score > 90:
 - **Font Preloading**: Critical Google Fonts are preconnected and preloaded in `app.html`.
 - **SSR Compatibility**: All GSAP animations and WebGL contexts are safely initialized in `onMount` to prevent Server-Side Rendering (SSR) hydration mismatches.
 
-## ♿ Accessibility Considerations
+## 🧠 Creative Features (Stage 5b)
 
+This portfolio exceeds the requirement of one creative feature by implementing three advanced systems:
+
+1.  **Interactive Terminal (CCC.OS)**: A custom-built command palette and shell. Use `Ctrl+K` to open. Supports standard commands like `ls`, `dir`, `whoami`, `cat`, and `cd [section]` for keyboard-driven navigation.
+2.  **AI Portfolio Assistant**: A heuristic-driven assistant built into the UI to provide instant context and help users navigate the architect's capabilities.
+3.  **3D / WebGL Atmosphere**: A performant Threlte (Three.js) scene in the Hero section providing depth and cinematic visual rhythm.
+
+## 📧 Contact API (Resend)
+
+The contact form is powered by a production-ready **SvelteKit API Route** (`/api/contact`) integrated with **Resend**. It includes server-side validation and secure credential handling.
+
+## ♿ Accessibility Considerations
 - **Semantic HTML**: Proper use of `<nav>`, `<main>`, `<section>`, `<header>`, and `<footer>`.
-- **Keyboard Navigation**: The Terminal can be toggled via `Ctrl+K` or `Cmd+K`. The mobile menu dialog has `tabindex="-1"` and can be dismissed via the `Escape` key.
-- **Focus States**: Custom `:focus-visible` outlines applied globally for keyboard users.
-- **Reduced Motion**: Respects `@media (prefers-reduced-motion: reduce)` by disabling CSS animations where appropriate.
+- **Keyboard Navigation**: The Terminal can be toggled via `Ctrl+K`. The mobile menu dialog and terminal can be dismissed via the `Escape` key.
+- **Focus States**: Custom `:focus-visible` outlines applied globally.
+- **Reduced Motion**: Respects `@media (prefers-reduced-motion: reduce)`.
 
 ## 🛠️ Setup Instructions
 
 1. **Clone the repository**
-2. **Install dependencies**:
-   ```bash
-   npm install
+2. **Install dependencies**: `npm install`
+3. **Environment Setup**: Create a `.env` file in the root:
+   ```env
+   RESEND_API_KEY=your_key_here
    ```
-3. **Start the development server**:
-   ```bash
-   npm run dev
-   ```
+4. **Start development**: `npm run dev`
 4. **Build for production**:
    ```bash
    npm run build
