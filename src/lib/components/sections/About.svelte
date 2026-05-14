@@ -99,13 +99,13 @@
 				<div class="w-full overflow-x-auto">
 					<pre class="font-mono text-[12px] md:text-[14px] leading-[1.7] text-on-surface whitespace-pre-wrap break-words min-w-0">
 <span class="text-outline">&#123;</span>
-  <span class="text-primary-fixed-dim">"id"</span>: <span class="text-secondary-fixed-dim">"christian_chibuike"</span>,
-  <span class="text-primary-fixed-dim">"role"</span>: <span class="text-secondary-fixed-dim">"Frontend Engineer & System Architect"</span>,
+  <span class="text-primary-fixed-dim">"id"</span>: <span class="text-secondary-fixed-dim">"{meta.handle}"</span>,
+  <span class="text-primary-fixed-dim">"role"</span>: <span class="text-secondary-fixed-dim">"{meta.title}"</span>,
   <span class="text-primary-fixed-dim">"location"</span>: <span class="text-secondary-fixed-dim">"{meta.location}"</span>,
-  <span class="text-primary-fixed-dim">"primary_stack"</span>: <span class="text-outline">[</span><span class="text-secondary-fixed-dim">"React"</span>, <span class="text-secondary-fixed-dim">"NestJS"</span>, <span class="text-secondary-fixed-dim">"Node.js"</span>, <span class="text-secondary-fixed-dim">"TypeScript"</span><span class="text-outline">]</span>,
-  <span class="text-primary-fixed-dim">"exp_stack"</span>: <span class="text-outline">[</span><span class="text-secondary-fixed-dim">"FastAPI"</span>, <span class="text-secondary-fixed-dim">"Flask"</span>, <span class="text-secondary-fixed-dim">"SvelteKit"</span><span class="text-outline">]</span>,
-  <span class="text-primary-fixed-dim">"status"</span>: <span class="text-secondary-fixed-dim">"Available for Internship"</span>,
-  <span class="text-primary-fixed-dim">"uptime"</span>: <span class="text-primary-container">"99.9%"</span>
+  <span class="text-primary-fixed-dim">"primary_stack"</span>: <span class="text-outline">[</span>{#each meta.primaryStack as tech, i}<span class="text-secondary-fixed-dim">"{tech}"</span>{i < meta.primaryStack.length - 1 ? ', ' : ''}{/each}<span class="text-outline">]</span>,
+  <span class="text-primary-fixed-dim">"exp_stack"</span>: <span class="text-outline">[</span>{#each meta.expStack as tech, i}<span class="text-secondary-fixed-dim">"{tech}"</span>{i < meta.expStack.length - 1 ? ', ' : ''}{/each}<span class="text-outline">]</span>,
+  <span class="text-primary-fixed-dim">"status"</span>: <span class="text-secondary-fixed-dim">"{meta.status}"</span>,
+  <span class="text-primary-fixed-dim">"uptime"</span>: <span class="text-primary-container">"{meta.stats.find(s => s.label === 'Uptime')?.value || '99.9%'}"</span>
 <span class="text-outline">&#125;</span></pre>
 				</div>
 			</div>

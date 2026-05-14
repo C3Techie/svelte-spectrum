@@ -37,43 +37,40 @@
 	function closeMobile() { mobileMenuOpen = false; }
 </script>
 
-<!-- Desktop Nav -->
 <nav
-	class="fixed top-0 left-0 right-0 z-50 hidden md:flex justify-between items-center px-[64px] py-[16px]
-		transition-all duration-300
-		{scrolled
-		? 'bg-surface/95 backdrop-blur-2xl border-b border-primary-fixed-dim/40 py-[12px]'
-		: 'bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20'}"
+	class="fixed top-0 left-0 right-0 z-50 flex justify-center px-[16px] md:px-[64px] py-[16px] transition-all duration-300 {scrolled ? 'bg-surface/95 backdrop-blur-2xl border-b border-outline-variant/40 py-[12px]' : 'bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20'}"
 >
-	<div class="flex items-center gap-[12px]">
-		<div class="w-[32px] h-[32px] rounded-full border border-primary-fixed-dim/30 overflow-hidden bg-surface-container flex-shrink-0">
-			<img src="/C3Techie.png" alt="CCC" class="w-full h-full object-cover grayscale opacity-80" />
-		</div>
-		<a href="/" class="font-display text-lg font-bold tracking-tighter text-primary-fixed-dim hover:opacity-80 transition-opacity">
-			CCC.DEV
-		</a>
-	</div>
-
-	<div class="flex items-center gap-[32px]">
-		{#each navLinks as link}
-			<a
-				href={link.href}
-				title={link.title}
-				class="font-mono text-[12px] uppercase tracking-widest text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300"
-			>
-				{link.label}
+	<div class="w-full max-w-[1440px] flex justify-between items-center">
+		<div class="flex items-center gap-[12px]">
+			<div class="w-[32px] h-[32px] rounded-full border border-primary-fixed-dim/30 overflow-hidden bg-surface-container flex-shrink-0">
+				<img src="/C3Techie.png" alt="CCC" class="w-full h-full object-cover grayscale opacity-80" />
+			</div>
+			<a href="/" class="font-display text-lg font-bold tracking-tighter text-primary-fixed-dim hover:opacity-80 transition-opacity">
+				CCC.DEV
 			</a>
-		{/each}
-	</div>
+		</div>
 
-	<button
-		onclick={toggleTerminal}
-		class="font-mono text-[12px] uppercase tracking-widest text-primary-fixed-dim border border-primary-fixed-dim px-[16px] py-[8px] rounded hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-all duration-300 flex items-center gap-[8px]"
-		aria-label="Open Terminal (Ctrl+K)"
-	>
-		<span>TERMINAL</span>
-		<TerminalIcon size={14} />
-	</button>
+		<div class="hidden md:flex items-center gap-[32px]">
+			{#each navLinks as link}
+				<a
+					href={link.href}
+					title={link.title}
+					class="font-mono text-[12px] uppercase tracking-widest text-on-surface-variant hover:text-primary-fixed-dim transition-colors duration-300"
+				>
+					{link.label}
+				</a>
+			{/each}
+		</div>
+
+		<button
+			onclick={toggleTerminal}
+			class="hidden md:flex font-mono text-[12px] uppercase tracking-widest text-primary-fixed-dim border border-primary-fixed-dim px-[16px] py-[8px] rounded hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-all duration-300 items-center gap-[8px]"
+			aria-label="Open Terminal (Ctrl+K)"
+		>
+			<span>TERMINAL</span>
+			<TerminalIcon size={14} />
+		</button>
+	</div>
 </nav>
 
 <!-- Mobile Nav -->

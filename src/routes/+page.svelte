@@ -24,12 +24,14 @@
 	<Navbar />
 
 	<!-- Main Content Sections -->
-	<main class="flex-grow flex flex-col relative z-10 w-full">
-		<Hero />
-		<About />
-		<ProjectGrid />
-		<Skills />
-		<Contact />
+	<main class="flex-grow flex flex-col relative z-10 w-full items-center">
+		<div class="w-full max-w-[1440px] flex flex-col">
+			<Hero />
+			<About />
+			<ProjectGrid />
+			<Skills />
+			<Contact />
+		</div>
 	</main>
 
 	<!-- Footer -->
