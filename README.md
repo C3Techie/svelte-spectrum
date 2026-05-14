@@ -1,42 +1,93 @@
-# sv
+# CCC.DEV - The Nexus Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A highly interactive, cinematic, futuristic, production-grade developer portfolio built with SvelteKit, showcasing frontend engineering mastery and advanced animation systems.
 
-## Creating a project
+## 🚀 Architecture Overview
 
-If you're seeing this, you've probably already done this step. Congrats!
+This project uses a modular and scalable architecture:
 
-```sh
-# create a new project
-npx sv create my-app
+- **Framework**: SvelteKit for server-side rendering and routing.
+- **Styling**: Tailwind CSS v4 with a custom tokenized theme system.
+- **Animations**: GSAP (GreenSock) for cinematic timelines and scroll-driven reveals.
+- **3D Graphics**: Threlte (Three.js for Svelte) for performant WebGL interactions.
+- **Icons**: Lucide Svelte for lightweight, consistent iconography.
+
+### Directory Structure
+
+```text
+src/
+├── lib/
+│    ├── components/
+│    │    ├── layout/       # Navbar, Footer, Background
+│    │    ├── sections/     # Hero, About, ProjectGrid, Skills, Contact
+│    │    ├── terminal/     # Interactive Terminal UI
+│    │    └── three/        # WebGL / Threlte 3D scenes
+│    ├── stores/            # Global Svelte stores (e.g., terminal state)
+│    └── data/              # Mock data (projects, skills, metadata)
+├── routes/
+│    ├── +page.svelte       # Main landing page orchestration
+│    ├── +layout.svelte     # Global layout wrapper
+│    └── layout.css         # Global styles and Tailwind configuration
+└── app.html                # HTML entry point with font preloads
 ```
 
-To recreate this project with the same configuration:
+## 🎨 Design System
 
-```sh
-# recreate this project
-npx sv@0.15.3 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:typography" --install npm ./
-```
+The visual DNA is strictly based on a futuristic, terminal-inspired aesthetic:
 
-## Developing
+- **Colors**: Deep surfaces (`#0d1516`), cyan primary accents (`#00daf3`), and lavender secondary accents (`#cdbdff`).
+- **Typography**: 
+  - `Geist` for massive, tight-tracking display headers.
+  - `JetBrains Mono` for code snippets, labels, and the terminal interface.
+  - `Inter` for highly legible body copy.
+- **Motifs**: Glassmorphism (`backdrop-blur`), glowing borders, terminal block decorators, and pulsing status indicators.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 🎬 Animation Strategy
 
-```sh
-npm run dev
+Animations are orchestrated using **GSAP**:
+- **Hero Reveal**: A timeline-based staggered cinematic entrance on load.
+- **Scroll Storytelling**: `ScrollTrigger` is used to fade and slide up components (projects, skills, contact elements) as they enter the viewport.
+- **Micro-interactions**: Tailwind CSS transitions are used for hover states, card tilts, and button glows to ensure zero layout shift and high performance.
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+## ⚡ Performance Optimizations
 
-## Building
+To ensure a Lighthouse score > 90:
+- **WebGL Scoping**: The Threlte 3D canvas is restricted to the Hero section to prevent heavy GPU usage across the entire scrolling page.
+- **CSS-Only Glows**: Background ambient glows are achieved using pure CSS `box-shadow` and `filter: blur()`, avoiding expensive canvas rendering for simple gradients.
+- **Font Preloading**: Critical Google Fonts are preconnected and preloaded in `app.html`.
+- **SSR Compatibility**: All GSAP animations and WebGL contexts are safely initialized in `onMount` to prevent Server-Side Rendering (SSR) hydration mismatches.
 
-To create a production version of your app:
+## ♿ Accessibility Considerations
 
-```sh
-npm run build
-```
+- **Semantic HTML**: Proper use of `<nav>`, `<main>`, `<section>`, `<header>`, and `<footer>`.
+- **Keyboard Navigation**: The Terminal can be toggled via `Ctrl+K` or `Cmd+K`. The mobile menu dialog has `tabindex="-1"` and can be dismissed via the `Escape` key.
+- **Focus States**: Custom `:focus-visible` outlines applied globally for keyboard users.
+- **Reduced Motion**: Respects `@media (prefers-reduced-motion: reduce)` by disabling CSS animations where appropriate.
 
-You can preview the production build with `npm run preview`.
+## 🛠️ Setup Instructions
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+1. **Clone the repository**
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
+
+## 🌍 Deployment
+
+This project is configured to be deployed easily on **Vercel**, **Netlify**, or **Cloudflare Pages** using the standard `@sveltejs/adapter-auto`.
+
+1. Push your code to a GitHub repository.
+2. Connect the repository to Vercel/Netlify.
+3. The build command (`npm run build`) and output directory will be automatically detected.
+
+## ⚖️ Trade-offs
+- **GSAP over native Svelte transitions**: While Svelte's native transitions are lighter, GSAP was chosen to allow for complex, coordinated scroll-driven timelines (`ScrollTrigger`) which are essential for the "cinematic" feel.
+- **Tailwind v4 `@theme`**: Using the latest Tailwind version means `@apply` constraints (e.g., avoiding modifier classes like `group` inside `@apply`). Classes are kept inline in HTML to favor composition over abstraction.
