@@ -19,7 +19,8 @@
 		'whoami': 'Display identity data',
 		'goto projects': 'Navigate to portfolio systems',
 		'goto skills': 'Navigate to capabilities',
-		'goto contact': 'Navigate to comms channel',
+		'ls': 'List active project directories',
+		'dir': 'List active project directories',
 		'clear': 'Clear terminal buffer',
 		'matrix': 'Enter the matrix',
 		'sudo': 'Super user operations'
@@ -79,6 +80,26 @@
 				{ type: 'success', text: `Role: ${meta.title}` },
 				{ type: 'success', text: `Location: ${meta.location}` }
 			];
+		} else if (cmd === 'ls' || cmd === 'dir') {
+			history = [...history, 
+				{ type: 'info', text: 'Listing active systems...' },
+				{ type: 'success', text: 'projects/' },
+				{ type: 'success', text: 'skills/' },
+				{ type: 'success', text: 'identity_dump.json' }
+			];
+		} else if (cmd.startsWith('cd ')) {
+			const target = cmd.split(' ')[1];
+			if (['projects', 'skills', 'about', 'contact'].includes(target)) {
+				closeTerminal();
+				document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' });
+			} else {
+				history = [...history, { type: 'error', text: `Directory not found: ${target}` }];
+			}
+		} else if (cmd === 'cat identity_dump.json') {
+			history = [...history, { type: 'info', text: 'Reading identity_dump.json...' }];
+			setTimeout(() => {
+				history = [...history, { type: 'success', text: JSON.stringify(meta, null, 2) }];
+			}, 500);
 		} else if (cmd === 'goto projects') {
 			closeTerminal();
 			document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });

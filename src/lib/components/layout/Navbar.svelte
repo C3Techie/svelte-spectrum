@@ -1,12 +1,10 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import gsap from 'gsap';
 	import TerminalIcon from 'lucide-svelte/icons/terminal';
 	import MenuIcon from 'lucide-svelte/icons/menu';
 	import XIcon from 'lucide-svelte/icons/x';
 	import { toggleTerminal } from '$lib/stores/terminal';
 
-	let nav: HTMLElement;
 	let mobileMenuOpen = $state(false);
 	let scrolled = $state(false);
 
@@ -18,8 +16,6 @@
 	];
 
 	onMount(() => {
-		gsap.from(nav, { y: -80, opacity: 0, duration: 1, ease: 'power4.out', delay: 0.3 });
-
 		const handleScroll = () => { scrolled = window.scrollY > 20; };
 		window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -43,11 +39,10 @@
 
 <!-- Desktop Nav -->
 <nav
-	bind:this={nav}
 	class="fixed top-0 left-0 right-0 z-50 hidden md:flex justify-between items-center px-[64px] py-[16px]
 		transition-all duration-300
 		{scrolled
-		? 'bg-surface/95 backdrop-blur-2xl border-b border-outline-variant/40 py-[12px]'
+		? 'bg-surface/95 backdrop-blur-2xl border-b border-primary-fixed-dim/40 py-[12px]'
 		: 'bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20'}"
 >
 	<div class="flex items-center gap-[12px]">
@@ -145,3 +140,5 @@
 		</div>
 	</div>
 {/if}
+
+

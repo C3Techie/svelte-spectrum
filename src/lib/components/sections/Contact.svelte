@@ -25,16 +25,34 @@
 		);
 	});
 
-	function handleSubmit(e: Event) {
-		e.preventDefault();
+	async function handleSubmit(e: Event) {
+		const form = e.target as HTMLFormElement;
+		const formData = new FormData(form);
+		const payload = {
+			name: formData.get('name'),
+			email: formData.get('email'),
+			message: formData.get('message')
+		};
+
 		formStatus = 'sending';
 		
-		// Simulate network request
-		setTimeout(() => {
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(payload)
+			});
+
+			if (!response.ok) throw new Error('Transmission failed');
+
 			formStatus = 'success';
-			setTimeout(() => formStatus = 'idle', 3000);
-			(e.target as HTMLFormElement).reset();
-		}, 1500);
+			form.reset();
+			setTimeout(() => formStatus = 'idle', 5000);
+		} catch (err) {
+			console.error(err);
+			formStatus = 'error';
+			setTimeout(() => formStatus = 'idle', 4000);
+		}
 	}
 </script>
 
@@ -69,6 +87,7 @@
 					</label>
 					<input 
 						type="text" 
+						name="name"
 						id="name" 
 						required
 						class="bg-surface-container-highest/50 border border-outline-variant/50 focus:border-primary-fixed-dim rounded px-[16px] py-[12px] font-body text-on-surface outline-none transition-colors"
@@ -82,6 +101,7 @@
 					</label>
 					<input 
 						type="email" 
+						name="email"
 						id="email" 
 						required
 						class="bg-surface-container-highest/50 border border-outline-variant/50 focus:border-primary-fixed-dim rounded px-[16px] py-[12px] font-body text-on-surface outline-none transition-colors"
@@ -94,6 +114,7 @@
 						<span class="text-primary-fixed-dim">&gt;</span> Enter Payload (Message)
 					</label>
 					<textarea 
+						name="message"
 						id="message" 
 						required
 						rows="4"
@@ -112,6 +133,8 @@
 						<span>TRANSMITTING...</span>
 					{:else if formStatus === 'success'}
 						<span>PAYLOAD DELIVERED</span>
+					{:else if formStatus === 'error'}
+						<span>TRANSMISSION FAILED</span>
 					{:else}
 						<span>TRANSMIT PAYLOAD</span>
 						<SendIcon size={16} />
