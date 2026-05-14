@@ -69,6 +69,7 @@
   --spacing-margin-mobile: 16px;
   --spacing-gutter: 24px;
   --spacing-max-width: 1440px;
+  --animate-scan: scan 3s linear infinite;
 }
 
 /* ─── Base Layer ─── */
@@ -111,7 +112,7 @@
     outline-offset: 2px;
   }
 
-  --animate-scan: scan 3s linear infinite;
+
 
   @keyframes scan {
     0% { top: -10%; }
