@@ -128,21 +128,21 @@
 		<div class="hero-terminal opacity-0 w-full max-w-3xl text-left">
 			<div class="bg-[#1A1A1A]/70 backdrop-blur-md border border-outline-variant rounded p-[8px]">
 				<!-- Terminal header bar -->
-				<div class="flex items-center gap-[8px] mb-[8px] border-b border-outline-variant/30 pb-[8px] px-[8px]">
+				<div class="flex items-center gap-[8px] mb-[8px] border-b border-white/10 pb-[8px] px-[8px]">
 					<div class="flex gap-[6px]">
-						<div class="w-3 h-3 rounded-full bg-error/60"></div>
-						<div class="w-3 h-3 rounded-full bg-tertiary-fixed-dim/60"></div>
-						<div class="w-3 h-3 rounded-full bg-primary-fixed-dim/60"></div>
+						<div class="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
+						<div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+						<div class="w-3 h-3 rounded-full bg-[#27C93F]"></div>
 					</div>
-					<span class="font-mono text-[10px] text-outline-variant ml-[8px]">nexus_sys_status.sh</span>
+					<span class="font-mono text-[10px] text-white/40 ml-[8px]">nexus_sys_status.sh</span>
 				</div>
 				<!-- Terminal body -->
-				<div class="font-mono text-[13px] md:text-[14px] text-outline p-[8px] leading-[1.8]">
-					<span class="text-primary-fixed-dim">user@ccc-os:~$</span> systemctl status nexus<br />
-					<span class="text-secondary-fixed-dim">●</span> nexus.service - Main Identity Interface<br />
-					&nbsp;&nbsp;&nbsp;Loaded: loaded (/etc/systemd/system/nexus.service)<br />
-					&nbsp;&nbsp;&nbsp;Active: <span class="text-primary-container">active (running)</span> since {timestamp}<br />
-					&nbsp;&nbsp;&nbsp;Docs: <span class="text-on-surface-variant">man:ccc(8)</span>
+				<div class="font-mono text-[13px] md:text-[14px] text-white/70 p-[8px] leading-[1.8]">
+					<span class="text-[#00daf3]">user@ccc-os:~$</span> <span class="text-white">systemctl status nexus</span><br />
+					<span class="text-[#cdbdff]">●</span> <span class="text-white/90">nexus.service - Main Identity Interface</span><br />
+					&nbsp;&nbsp;&nbsp;Loaded: <span class="text-white/80">loaded (/etc/systemd/system/nexus.service)</span><br />
+					&nbsp;&nbsp;&nbsp;Active: <span class="text-[#00e5ff]">active (running)</span> since <span class="text-white/80">{timestamp}</span><br />
+					&nbsp;&nbsp;&nbsp;Docs: <span class="text-white/60">man:ccc(8)</span>
 				</div>
 			</div>
 		</div>

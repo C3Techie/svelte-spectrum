@@ -96,7 +96,7 @@
 				<div class="absolute inset-0 bg-primary-fixed-dim/0 group-hover:bg-primary-fixed-dim/5 transition-colors duration-500 pointer-events-none z-0"></div>
 				
 				<!-- Image Container -->
-				<div class="relative h-[240px] md:h-[300px] w-full overflow-hidden border-b border-outline-variant/50">
+				<a href="/projects/{project.id}" class="relative h-[240px] md:h-[300px] w-full overflow-hidden border-b border-outline-variant/50 block">
 					<div class="absolute inset-0 bg-surface/40 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
 					<img 
 						src={project.image} 
@@ -110,7 +110,7 @@
 							{project.year} // {project.status}
 						</span>
 					</div>
-				</div>
+				</a>
 
 				<!-- Content -->
 				<div class="flex flex-col flex-grow p-[24px] relative z-10">
@@ -119,9 +119,11 @@
 							<span class="font-mono text-[10px] text-secondary-fixed-dim uppercase tracking-widest block mb-[4px]">
 								sys.{project.category}
 							</span>
-							<h3 class="font-display text-[24px] text-on-surface font-bold tracking-tight group-hover:text-primary-fixed-dim transition-colors">
-								{project.title}
-							</h3>
+							<a href="/projects/{project.id}">
+								<h3 class="font-display text-[24px] text-on-surface font-bold tracking-tight group-hover:text-primary-fixed-dim transition-colors">
+									{project.title}
+								</h3>
+							</a>
 						</div>
 						
 						<!-- Action Links -->

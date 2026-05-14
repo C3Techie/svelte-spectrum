@@ -28,14 +28,17 @@
 
 	$effect(() => {
 		if ($terminalOpen) {
-			if (terminalElement) {
-				gsap.fromTo(terminalElement, 
-					{ scale: 0.95, opacity: 0, y: 20 }, 
-					{ scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }
-				);
-			}
-			// Auto focus input
-			setTimeout(() => inputElement?.focus(), 100);
+			// Wait for the element to be bound to the DOM
+			const timer = setTimeout(() => {
+				if (terminalElement) {
+					gsap.fromTo(terminalElement, 
+						{ scale: 0.95, opacity: 0, y: 20 }, 
+						{ scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'power3.out' }
+					);
+				}
+				inputElement?.focus();
+			}, 0);
+			return () => clearTimeout(timer);
 		}
 	});
 
@@ -110,7 +113,7 @@
 			closeTerminal();
 			document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
 		} else if (cmd === 'matrix') {
-			history = [...history, { type: 'info', text: 'Wake up, Neo...' }];
+			history = [...history, { type: 'info', text: 'Wake up...' }];
 			setTimeout(() => {
 				history = [...history, { type: 'info', text: 'The Matrix has you...' }];
 			}, 2000);

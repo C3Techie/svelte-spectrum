@@ -3,7 +3,10 @@
 	import TerminalIcon from 'lucide-svelte/icons/terminal';
 	import MenuIcon from 'lucide-svelte/icons/menu';
 	import XIcon from 'lucide-svelte/icons/x';
+	import MoonIcon from 'lucide-svelte/icons/moon';
+	import SunIcon from 'lucide-svelte/icons/sun';
 	import { toggleTerminal } from '$lib/stores/terminal';
+	import { theme, toggleTheme } from '$lib/stores/theme';
 
 	let mobileMenuOpen = $state(false);
 	let scrolled = $state(false);
@@ -62,32 +65,59 @@
 			{/each}
 		</div>
 
-		<button
-			onclick={toggleTerminal}
-			class="hidden md:flex font-mono text-[12px] uppercase tracking-widest text-primary-fixed-dim border border-primary-fixed-dim px-[16px] py-[8px] rounded hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-all duration-300 items-center gap-[8px]"
-			aria-label="Open Terminal (Ctrl+K)"
-		>
-			<span>TERMINAL</span>
-			<TerminalIcon size={14} />
-		</button>
+		<div class="flex items-center gap-[12px]">
+			<button
+				onclick={toggleTheme}
+				class="p-[8px] rounded border border-outline-variant/30 text-on-surface-variant hover:text-primary-fixed-dim hover:border-primary-fixed-dim transition-all duration-300"
+				aria-label="Toggle Theme"
+			>
+				{#if $theme === 'dark'}
+					<SunIcon size={18} />
+				{:else}
+					<MoonIcon size={18} />
+				{/if}
+			</button>
+
+			<button
+				onclick={toggleTerminal}
+				class="hidden md:flex font-mono text-[12px] uppercase tracking-widest text-primary-fixed-dim border border-primary-fixed-dim px-[16px] py-[8px] rounded hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-all duration-300 items-center gap-[8px]"
+				aria-label="Open Terminal (Ctrl+K)"
+			>
+				<span>TERMINAL</span>
+				<TerminalIcon size={14} />
+			</button>
+		</div>
 	</div>
 </nav>
 
 <!-- Mobile Nav -->
 <header class="md:hidden fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-[16px] py-[16px] bg-surface/90 backdrop-blur-xl border-b border-outline-variant/30">
 	<a href="/" class="font-display text-lg font-bold tracking-tighter text-primary-fixed-dim">CCC.DEV</a>
-	<button
-		onclick={() => mobileMenuOpen = !mobileMenuOpen}
-		class="text-primary-fixed-dim p-1"
-		aria-label="Toggle mobile menu"
-		aria-expanded={mobileMenuOpen}
-	>
-		{#if mobileMenuOpen}
-			<XIcon size={22} />
-		{:else}
-			<MenuIcon size={22} />
-		{/if}
-	</button>
+	<div class="flex items-center gap-[8px]">
+		<button
+			onclick={toggleTheme}
+			class="p-[6px] rounded border border-outline-variant/30 text-on-surface-variant"
+			aria-label="Toggle Theme"
+		>
+			{#if $theme === 'dark'}
+				<SunIcon size={18} />
+			{:else}
+				<MoonIcon size={18} />
+			{/if}
+		</button>
+		<button
+			onclick={() => mobileMenuOpen = !mobileMenuOpen}
+			class="text-primary-fixed-dim p-1"
+			aria-label="Toggle mobile menu"
+			aria-expanded={mobileMenuOpen}
+		>
+			{#if mobileMenuOpen}
+				<XIcon size={22} />
+			{:else}
+				<MenuIcon size={22} />
+			{/if}
+		</button>
+	</div>
 </header>
 
 <!-- Mobile Menu Overlay -->

@@ -59,11 +59,12 @@ To ensure a Lighthouse score > 90:
 
 ## 🧠 Creative Features (Stage 5b)
 
-This portfolio exceeds the requirement of one creative feature by implementing three advanced systems:
+This portfolio exceeds the requirement of one creative feature by implementing several advanced systems:
 
 1.  **Interactive Terminal (CCC.OS)**: A custom-built command palette and shell. Use `Ctrl+K` to open. Supports standard commands like `ls`, `dir`, `whoami`, `cat`, and `cd [section]` for keyboard-driven navigation.
-2.  **AI Portfolio Assistant**: A heuristic-driven assistant built into the UI to provide instant context and help users navigate the architect's capabilities.
-3.  **3D / WebGL Atmosphere**: A performant Threlte (Three.js) scene in the Hero section providing depth and cinematic visual rhythm.
+2.  **AI Portfolio Assistant (Nexus AI)**: A sophisticated assistant integrated with **Groq (Llama 3)** for real-time interaction. It provides context-aware answers about projects, skills, and contact info.
+3.  **Dynamic Theming**: Support for both **Dark** and **Light** modes with persistence and system preference synchronization.
+4.  **3D / WebGL Atmosphere**: A performant Threlte (Three.js) scene in the Hero section providing depth and cinematic visual rhythm.
 
 ## 📧 Contact API (Resend)
 
@@ -82,6 +83,7 @@ The contact form is powered by a production-ready **SvelteKit API Route** (`/api
 3. **Environment Setup**: Create a `.env` file in the root:
    ```env
    RESEND_API_KEY=your_key_here
+   GROQ_API_KEY=your_groq_key_here
    ```
 4. **Start development**: `npm run dev`
 4. **Build for production**:

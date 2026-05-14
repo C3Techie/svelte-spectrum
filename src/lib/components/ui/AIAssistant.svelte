@@ -24,13 +24,22 @@
 
 	function toggleAssistant() {
 		isOpen = !isOpen;
-		if (isOpen) {
-			gsap.fromTo('.ai-panel', 
-				{ scale: 0.9, opacity: 0, y: 20 }, 
-				{ scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'back.out(1.7)' }
-			);
-		}
 	}
+
+	$effect(() => {
+		if (isOpen) {
+			// Small delay to ensure DOM is rendered before GSAP targets it
+			setTimeout(() => {
+				const el = document.querySelector('.ai-panel');
+				if (el) {
+					gsap.fromTo(el, 
+						{ scale: 0.9, opacity: 0, y: 20 }, 
+						{ scale: 1, opacity: 1, y: 0, duration: 0.4, ease: 'back.out(1.7)' }
+					);
+				}
+			}, 0);
+		}
+	});
 
 	async function handleSubmit(query?: string) {
 		const text = query || input;
@@ -40,23 +49,23 @@
 		input = '';
 		isTyping = true;
 
-		// Simulated AI Logic
-		setTimeout(() => {
-			let response = "";
-			const q = text.toLowerCase();
+		try {
+			const response = await fetch('/api/ai', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ message: text })
+			});
 
-			if (q.includes('featured') || q.includes('project')) {
-				const top = projects.filter(p => p.featured)[0];
-				response = `Christian's flagship project is currently "${top.title}". It's a ${top.description}`;
-			} else if (q.includes('backend')) {
-				response = "Christian specializes in high-integrity backend architecture using NestJS, Node.js, and PostgreSQL. He recently built a secure Wallet Engine with atomic fund transfers.";
-			} else if (q.includes('status') || q.includes('hire')) {
-				response = "Christian is currently seeking a performance-based internship to contribute to live projects and grow fullstack skills. System availability: High.";
+			const data = await response.json();
+			
+			if (data.response) {
+				messages = [...messages, { role: 'assistant', text: data.response }];
 			} else {
-				response = "I've logged your query. Christian is highly proficient in React, NestJS, and Node.js. He is also currently expanding his capabilities with SvelteKit. You can find more details in the About section.";
+				messages = [...messages, { role: 'assistant', text: "SYSTEM ERROR: Could not retrieve response from Nexus Core." }];
 			}
-
-			messages = [...messages, { role: 'assistant', text: response }];
+		} catch (err) {
+			messages = [...messages, { role: 'assistant', text: "NETWORK ERROR: Connection to Nexus Core lost." }];
+		} finally {
 			isTyping = false;
 			
 			// Scroll to bottom
@@ -64,7 +73,7 @@
 				const container = document.getElementById('chat-container');
 				if (container) container.scrollTop = container.scrollHeight;
 			}, 100);
-		}, 1000);
+		}
 	}
 </script>
 

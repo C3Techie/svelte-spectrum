@@ -24,7 +24,7 @@
 	<Navbar />
 
 	<!-- Main Content Sections -->
-	<main class="flex-grow flex flex-col relative z-10 w-full items-center">
+	<main id="main-content" class="flex-grow flex flex-col relative z-10 w-full items-center focus:outline-none" tabindex="-1">
 		<div class="w-full max-w-[1440px] flex flex-col">
 			<Hero />
 			<About />

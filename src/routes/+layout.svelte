@@ -8,8 +8,21 @@
 	import '@fontsource/geist-sans/700.css';
 
 
+	import { page } from '$app/stores';
+	import { fade } from 'svelte/transition';
+
 	let { children } = $props();
 </script>
 
+<a
+	href="#main-content"
+	class="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-primary-fixed-dim text-on-primary-fixed px-4 py-2 rounded font-mono text-sm"
+>
+	Skip to content
+</a>
 
-{@render children()}
+{#key $page.url.pathname}
+	<div in:fade={{ duration: 300, delay: 300 }} out:fade={{ duration: 300 }}>
+		{@render children()}
+	</div>
+{/key}

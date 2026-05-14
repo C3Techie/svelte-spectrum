@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
-@theme {
-  /* ─── Color System (exact from sample.html) ─── */
+:root {
+  /* ─── Dark Theme (Default) ─── */
   --color-primary: #c3f5ff;
   --color-primary-container: #00e5ff;
   --color-primary-fixed: #9cf0ff;
@@ -52,6 +52,110 @@
   --color-error-container: #93000a;
   --color-on-error: #690005;
   --color-on-error-container: #ffdad6;
+}
+
+:root[data-theme="light"] {
+  --color-primary: #006875;
+  --color-primary-container: #004f58;
+  --color-primary-fixed: #00363d;
+  --color-primary-fixed-dim: #004f58;
+  --color-on-primary: #ffffff;
+  --color-on-primary-fixed: #ffffff;
+  --color-on-primary-fixed-variant: #c3f5ff;
+  --color-on-primary-container: #c3f5ff;
+  --color-inverse-primary: #00daf3;
+
+  --color-secondary: #6542c1;
+  --color-secondary-container: #e8deff;
+  --color-secondary-fixed: #20005f;
+  --color-secondary-fixed-dim: #370096;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-fixed: #ffffff;
+  --color-on-secondary-container: #20005f;
+
+  --color-tertiary: #765b00;
+  --color-tertiary-container: #ffdf96;
+  --color-tertiary-fixed: #3e2e00;
+  --color-tertiary-fixed-dim: #594400;
+  --color-on-tertiary: #ffffff;
+
+  --color-surface: #f5fafb;
+  --color-surface-dim: #d5dbdc;
+  --color-surface-bright: #f5fafb;
+  --color-surface-variant: #dae4e5;
+  --color-surface-tint: #006875;
+  --color-surface-container: #ebf0f1;
+  --color-surface-container-low: #f1f6f7;
+  --color-surface-container-high: #e5eaeb;
+  --color-surface-container-highest: #dfe4e5;
+  --color-surface-container-lowest: #ffffff;
+  --color-background: #f5fafb;
+  --color-inverse-surface: #2a3233;
+  --color-inverse-on-surface: #f5fafb;
+
+  --color-outline: #6f797a;
+  --color-outline-variant: #bfc8ca;
+
+  --color-on-surface: #171d1e;
+  --color-on-surface-variant: #3f484a;
+  --color-on-background: #171d1e;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #410002;
+}
+
+@theme {
+  --color-primary: var(--color-primary);
+  --color-primary-container: var(--color-primary-container);
+  --color-primary-fixed: var(--color-primary-fixed);
+  --color-primary-fixed-dim: var(--color-primary-fixed-dim);
+  --color-on-primary: var(--color-on-primary);
+  --color-on-primary-fixed: var(--color-on-primary-fixed);
+  --color-on-primary-fixed-variant: var(--color-on-primary-fixed-variant);
+  --color-on-primary-container: var(--color-on-primary-container);
+  --color-inverse-primary: var(--color-inverse-primary);
+
+  --color-secondary: var(--color-secondary);
+  --color-secondary-container: var(--color-secondary-container);
+  --color-secondary-fixed: var(--color-secondary-fixed);
+  --color-secondary-fixed-dim: var(--color-secondary-fixed-dim);
+  --color-on-secondary: var(--color-on-secondary);
+  --color-on-secondary-fixed: var(--color-on-secondary-fixed);
+  --color-on-secondary-container: var(--color-on-secondary-container);
+
+  --color-tertiary: var(--color-tertiary);
+  --color-tertiary-container: var(--color-tertiary-container);
+  --color-tertiary-fixed: var(--color-tertiary-fixed);
+  --color-tertiary-fixed-dim: var(--color-tertiary-fixed-dim);
+  --color-on-tertiary: var(--color-on-tertiary);
+
+  --color-surface: var(--color-surface);
+  --color-surface-dim: var(--color-surface-dim);
+  --color-surface-bright: var(--color-surface-bright);
+  --color-surface-variant: var(--color-surface-variant);
+  --color-surface-tint: var(--color-surface-tint);
+  --color-surface-container: var(--color-surface-container);
+  --color-surface-container-low: var(--color-surface-container-low);
+  --color-surface-container-high: var(--color-surface-container-high);
+  --color-surface-container-highest: var(--color-surface-container-highest);
+  --color-surface-container-lowest: var(--color-surface-container-lowest);
+  --color-background: var(--color-background);
+  --color-inverse-surface: var(--color-inverse-surface);
+  --color-inverse-on-surface: var(--color-inverse-on-surface);
+
+  --color-outline: var(--color-outline);
+  --color-outline-variant: var(--color-outline-variant);
+
+  --color-on-surface: var(--color-on-surface);
+  --color-on-surface-variant: var(--color-on-surface-variant);
+  --color-on-background: var(--color-on-background);
+
+  --color-error: var(--color-error);
+  --color-error-container: var(--color-error-container);
+  --color-on-error: var(--color-on-error);
+  --color-on-error-container: var(--color-on-error-container);
 
   /* ─── Typography ─── */
   --font-display: "Geist", sans-serif;
