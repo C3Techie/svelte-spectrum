@@ -110,6 +110,13 @@
     outline: 2px solid #00daf3;
     outline-offset: 2px;
   }
+
+  --animate-scan: scan 3s linear infinite;
+
+  @keyframes scan {
+    0% { top: -10%; }
+    100% { top: 110%; }
+  }
 }
 
 /* ─── Component Layer ─── */

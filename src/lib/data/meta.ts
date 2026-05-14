@@ -1,23 +1,24 @@
 // Central portfolio metadata
 export const meta = {
-	name: 'Christian Chibuzor Chibuike',
+	name: 'Christian Chibuike',
 	handle: 'CCC.DEV',
-	title: 'Frontend Engineer & System Architect',
+	title: 'Fullstack Developer',
 	tagline: 'Building high-performance interfaces and scalable digital infrastructure.',
-	location: 'Lagos, Nigeria',
-	email: 'christian@ccc.dev',
+	location: 'Abuja, Nigeria',
+	email: 'christianchibuike14@gmail.com',
+	phone: '+234-90-710-30-761',
 	github: 'https://github.com/C3Techie',
 	linkedin: 'https://linkedin.com/in/christian-chibuike',
 	twitter: 'https://twitter.com/C3Techie',
-	resume: '/resume.pdf',
-	avatar: '/avatar.jpg',
+	resume: '/resume.docx',
+	avatar: '/C3Techie.png',
 	os: 'CCC.OS',
 	osVersion: 'v4.2.1',
-	bio: `I engineer digital systems that push the boundaries of what's possible on the web. Specializing in high-performance front-end architecture, immersive UI systems, and scalable infrastructure. I transform complex problems into elegant, intuitive experiences.`,
+	bio: `Enthusiastic Fullstack Developer with hands-on experience building web applications using React, Node.js, Express, and MongoDB. Passionate about creating real-world products, solving problems, and learning fast. Proven ability to work independently and deliver working features. Seeking a performance-based internship to contribute to live projects, grow fullstack skills, and build meaningful solutions.`,
 	stats: [
-		{ label: 'Years XP', value: '5+' },
-		{ label: 'Systems Built', value: '40+' },
-		{ label: 'Open Source', value: '12' },
+		{ label: 'Years XP', value: '2+' },
+		{ label: 'Systems Built', value: '15+' },
+		{ label: 'Open Source', value: '10+' },
 		{ label: 'Uptime', value: '99.9%' }
 	]
 } as const;

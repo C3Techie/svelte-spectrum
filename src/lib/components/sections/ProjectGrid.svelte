@@ -26,18 +26,27 @@
 				y: 0, opacity: 1, duration: 0.8, ease: 'power3.out'
 			}
 		);
+	});
 
-		// Animate project cards on scroll
-		const cards = gsap.utils.toArray('.project-card');
-		cards.forEach((card: any, i) => {
-			gsap.fromTo(card, 
-				{ y: 50, opacity: 0 },
-				{
-					scrollTrigger: { trigger: card, start: 'top 85%' },
-					y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', delay: (i % 2) * 0.1
-				}
-			);
-		});
+	// Re-animate cards whenever the filtered list changes
+	$effect(() => {
+		if (filteredProjects.length > 0) {
+			// Small delay to let Svelte mount the new elements
+			setTimeout(() => {
+				const cards = gsap.utils.toArray('.project-card');
+				cards.forEach((card: any, i) => {
+					// Only animate if not already visible (to prevent double-animation on scroll)
+					if (gsap.getProperty(card, 'opacity') === 0) {
+						gsap.fromTo(card, 
+							{ y: 30, opacity: 0 },
+							{
+								y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', delay: (i % 3) * 0.1
+							}
+						);
+					}
+				});
+			}, 50);
+		}
 	});
 
 	function setCategory(cat: Category) {

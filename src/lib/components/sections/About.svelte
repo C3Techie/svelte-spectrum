@@ -28,16 +28,37 @@
 		<!-- Left: Text content & Stats -->
 		<div class="lg:w-1/2 flex flex-col gap-[32px]">
 			
-			<div class="about-header opacity-0 flex flex-col items-start gap-[16px]">
-				<div class="inline-flex items-center gap-[8px] bg-surface-container/60 backdrop-blur-md border border-outline-variant px-[12px] py-[6px] rounded">
-					<UserIcon size={14} class="text-primary-fixed-dim" />
-					<span class="font-mono text-[12px] text-primary-fixed-dim tracking-wider uppercase">
-						SYS.INFO // Identity
-					</span>
+			<div class="about-header opacity-0 flex flex-col md:flex-row md:items-center gap-[24px]">
+				<!-- Avatar with Scanner Effect -->
+				<div class="relative w-[80px] h-[80px] md:w-[100px] md:h-[100px] flex-shrink-0">
+					<div class="absolute inset-0 rounded-full border-2 border-primary-fixed-dim/30 animate-pulse"></div>
+					<div class="absolute inset-0 rounded-full border border-primary-fixed-dim/50 p-[4px]">
+						<div class="w-full h-full rounded-full overflow-hidden bg-surface-container relative group">
+							<img 
+								src={meta.avatar} 
+								alt={meta.name} 
+								class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+							/>
+							<!-- Scanline effect -->
+							<div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary-fixed-dim/10 to-transparent h-[2px] w-full animate-scan pointer-events-none"></div>
+						</div>
+					</div>
+					<!-- Corner decorations -->
+					<div class="absolute -top-1 -left-1 w-3 h-3 border-t-2 border-l-2 border-primary-fixed-dim rounded-tl-sm"></div>
+					<div class="absolute -bottom-1 -right-1 w-3 h-3 border-b-2 border-r-2 border-primary-fixed-dim rounded-br-sm"></div>
 				</div>
-				<h2 class="font-display text-[32px] md:text-[48px] text-on-surface font-bold leading-[1.1] tracking-[-0.02em]">
-					About The Architect
-				</h2>
+
+				<div class="flex flex-col items-start gap-[12px]">
+					<div class="inline-flex items-center gap-[8px] bg-surface-container/60 backdrop-blur-md border border-outline-variant px-[12px] py-[6px] rounded">
+						<UserIcon size={14} class="text-primary-fixed-dim" />
+						<span class="font-mono text-[12px] text-primary-fixed-dim tracking-wider uppercase">
+							SYS.INFO // Identity
+						</span>
+					</div>
+					<h2 class="font-display text-[32px] md:text-[48px] text-on-surface font-bold leading-[1.1] tracking-[-0.02em]">
+						About The Architect
+					</h2>
+				</div>
 			</div>
 
 			<div class="about-bio opacity-0 font-body text-[16px] md:text-[18px] text-on-surface-variant leading-[1.8]">
@@ -81,13 +102,9 @@
   <span class="text-primary-fixed-dim">"id"</span>: <span class="text-secondary-fixed-dim">"christian_chibuike"</span>,
   <span class="text-primary-fixed-dim">"role"</span>: <span class="text-secondary-fixed-dim">"Frontend Engineer & System Architect"</span>,
   <span class="text-primary-fixed-dim">"location"</span>: <span class="text-secondary-fixed-dim">"{meta.location}"</span>,
-  <span class="text-primary-fixed-dim">"core_focus"</span>: <span class="text-outline">[</span>
-    <span class="text-secondary-fixed-dim">"High-Performance UI"</span>,
-    <span class="text-secondary-fixed-dim">"Distributed Systems"</span>,
-    <span class="text-secondary-fixed-dim">"Interactive Data Viz"</span>,
-    <span class="text-secondary-fixed-dim">"WebGL & Animation"</span>
-  <span class="text-outline">]</span>,
-  <span class="text-primary-fixed-dim">"status"</span>: <span class="text-secondary-fixed-dim">"Online"</span>,
+  <span class="text-primary-fixed-dim">"primary_stack"</span>: <span class="text-outline">[</span><span class="text-secondary-fixed-dim">"React"</span>, <span class="text-secondary-fixed-dim">"NestJS"</span>, <span class="text-secondary-fixed-dim">"Node.js"</span>, <span class="text-secondary-fixed-dim">"TypeScript"</span><span class="text-outline">]</span>,
+  <span class="text-primary-fixed-dim">"exp_stack"</span>: <span class="text-outline">[</span><span class="text-secondary-fixed-dim">"FastAPI"</span>, <span class="text-secondary-fixed-dim">"Flask"</span>, <span class="text-secondary-fixed-dim">"SvelteKit"</span><span class="text-outline">]</span>,
+  <span class="text-primary-fixed-dim">"status"</span>: <span class="text-secondary-fixed-dim">"Available for Internship"</span>,
   <span class="text-primary-fixed-dim">"uptime"</span>: <span class="text-primary-container">"99.9%"</span>
 <span class="text-outline">&#125;</span></pre>
 				</div>

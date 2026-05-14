@@ -8,6 +8,7 @@
 	import Contact from '$lib/components/sections/Contact.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import Terminal from '$lib/components/terminal/Terminal.svelte';
+	import AIAssistant from '$lib/components/ui/AIAssistant.svelte';
 	import { meta } from '$lib/data/meta';
 </script>
 
@@ -36,4 +37,5 @@
 
 	<!-- Overlay Components -->
 	<Terminal />
+	<AIAssistant />
 </div>

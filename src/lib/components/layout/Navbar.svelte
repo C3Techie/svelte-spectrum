@@ -50,9 +50,14 @@
 		? 'bg-surface/95 backdrop-blur-2xl border-b border-outline-variant/40 py-[12px]'
 		: 'bg-surface/80 backdrop-blur-xl border-b border-outline-variant/20'}"
 >
-	<a href="/" class="font-display text-lg font-bold tracking-tighter text-primary-fixed-dim hover:opacity-80 transition-opacity">
-		CCC.DEV
-	</a>
+	<div class="flex items-center gap-[12px]">
+		<div class="w-[32px] h-[32px] rounded-full border border-primary-fixed-dim/30 overflow-hidden bg-surface-container flex-shrink-0">
+			<img src="/C3Techie.png" alt="CCC" class="w-full h-full object-cover grayscale opacity-80" />
+		</div>
+		<a href="/" class="font-display text-lg font-bold tracking-tighter text-primary-fixed-dim hover:opacity-80 transition-opacity">
+			CCC.DEV
+		</a>
+	</div>
 
 	<div class="flex items-center gap-[32px]">
 		{#each navLinks as link}
