@@ -25,7 +25,7 @@ export const projects: Project[] = [
 		image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=1000',
 		category: 'fullstack',
 		featured: true,
-		year: 2024,
+		year: 2025,
 		status: 'live'
 	},
 	{
@@ -53,7 +53,7 @@ export const projects: Project[] = [
 		image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1000',
 		category: 'frontend',
 		featured: true,
-		year: 2024,
+		year: 2026,
 		status: 'live'
 	},
 	{
@@ -67,7 +67,7 @@ export const projects: Project[] = [
 		image: 'https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&q=80&w=1000',
 		category: 'backend',
 		featured: false,
-		year: 2024,
+		year: 2025,
 		status: 'live'
 	},
 	{
@@ -81,7 +81,7 @@ export const projects: Project[] = [
 		image: 'https://images.unsplash.com/photo-1512314889357-e157c22f938d?auto=format&fit=crop&q=80&w=1000',
 		category: 'backend',
 		featured: false,
-		year: 2024,
+		year: 2025,
 		status: 'live'
 	},
 	{
@@ -95,7 +95,7 @@ export const projects: Project[] = [
 		image: 'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?auto=format&fit=crop&q=80&w=1000',
 		category: 'frontend',
 		featured: false,
-		year: 2024,
+		year: 2025,
 		status: 'live'
 	},
 	{
@@ -109,7 +109,7 @@ export const projects: Project[] = [
 		image: 'https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&fit=crop&q=80&w=1000',
 		category: 'fullstack',
 		featured: false,
-		year: 2023,
+		year: 2026,
 		status: 'live'
 	},
 	{
@@ -123,7 +123,7 @@ export const projects: Project[] = [
 		image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1000',
 		category: 'frontend',
 		featured: false,
-		year: 2024,
+		year: 2026,
 		status: 'live'
 	},
 	{
@@ -137,7 +137,7 @@ export const projects: Project[] = [
 		image: 'https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&q=80&w=1000',
 		category: 'frontend',
 		featured: false,
-		year: 2024,
+		year: 2025,
 		status: 'live'
 	}
 ];
