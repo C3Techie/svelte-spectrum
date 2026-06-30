@@ -10,7 +10,7 @@ export interface Project {
 	category: 'frontend' | 'backend' | 'system' | 'fullstack';
 	featured: boolean;
 	year: number;
-	status: 'live' | 'wip' | 'archived';
+	status: 'live' | 'wip' | 'archived' | 'completed';
 }
 
 export const projects: Project[] = [
@@ -22,7 +22,7 @@ export const projects: Project[] = [
 		tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Convex', 'Resend'],
 		github: 'https://github.com/C3Techie/C3TECHIE-AUDIOPHILE-ECOMMERCE',
 		demo: 'https://c3-techie-audiophile-ecommerce.vercel.app/',
-		image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=1000',
+		image: '/audiophile-ecommerce.jpeg',
 		category: 'fullstack',
 		featured: true,
 		year: 2025,
@@ -40,7 +40,7 @@ export const projects: Project[] = [
 		category: 'backend',
 		featured: true,
 		year: 2025,
-		status: 'live'
+		status: 'completed'
 	},
 	{
 		id: 'c3techie-nexus',
@@ -50,7 +50,7 @@ export const projects: Project[] = [
 		tech: ['SvelteKit', 'ECharts', 'WebSocket', 'Tailwind', 'TypeScript'],
 		github: 'https://github.com/C3Techie/realtime-analytics-dashboard',
 		demo: 'https://realtime-analytics-dashboard-mu.vercel.app/',
-		image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=1000',
+		image: '/realtime-analytics-dashboard.jpeg',
 		category: 'frontend',
 		featured: true,
 		year: 2026,
@@ -85,17 +85,17 @@ export const projects: Project[] = [
 		status: 'live'
 	},
 	{
-		id: 'framez',
-		title: 'Framez Mobile',
-		description: 'Modern social media mobile application for moment sharing and connection.',
-		longDescription: 'A cross-platform social media app built with React Native and Expo. Features include real-time feeds, image uploads to Firebase, and secure user authentication.',
-		tech: ['React Native', 'Firebase', 'TypeScript', 'Expo'],
-		github: 'https://github.com/C3Techie/Framez',
-		demo: '#',
-		image: 'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?auto=format&fit=crop&q=80&w=1000',
+		id: 'testable-todo-card',
+		title: 'Todo Card',
+		description: 'Interactive and accessible Todo Card featuring editing, status management, and real-time due date tracking.',
+		longDescription: 'A state-driven Todo Card application built for HNG Internship Stage 1. The project includes task editing, synchronized status transitions, expandable descriptions, granular time tracking, and dynamic visual feedback based on task state and priority. Designed with accessibility in mind, it implements proper keyboard navigation, ARIA attributes, focus management, and semantic forms to deliver an inclusive and polished user experience.',
+		tech: ['HTML5', 'CSS3', 'JavaScript', 'Accessibility (ARIA)', 'CSS Variables', 'Flexbox', 'Grid'],
+		github: 'https://github.com/C3Techie/testable-todo-card',
+		demo: 'https://c3techie.github.io/testable-todo-card/',
+		image: '/todo-card.jpeg',
 		category: 'frontend',
 		featured: false,
-		year: 2025,
+		year: 2026,
 		status: 'live'
 	},
 	{
@@ -120,7 +120,7 @@ export const projects: Project[] = [
 		tech: ['React', 'TypeScript', 'Tailwind CSS'],
 		github: 'https://github.com/C3Techie/invoice-management-app',
 		demo: 'https://invoice-management-app-eight.vercel.app/',
-		image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1000',
+		image: '/invoice-management.jpeg',
 		category: 'frontend',
 		featured: false,
 		year: 2026,
@@ -129,12 +129,40 @@ export const projects: Project[] = [
 	{
 		id: 'ticket-webapp',
 		title: 'Ticket Management',
-		description: 'Responsive ticketing system with full CRUD functionality and animated transitions.',
-		longDescription: 'A robust ticket management application featuring user authentication, form validation, and smooth UI transitions using Framer Motion.',
-		tech: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+		description: 'Responsive ticket management system with authentication, full CRUD operations, form validation, and smooth animated transitions.',
+		longDescription: 'A modern ticket management application built with React and TypeScript featuring user authentication, protected routes, ticket CRUD operations, real-time form validation, toast notifications, and accessible, responsive interfaces enhanced with Framer Motion animations.',
+		tech: ['React', 'TypeScript', 'Tailwind CSS', 'React Router', 'React Hook Form', 'Framer Motion'],
 		github: 'https://github.com/C3Techie/ticket-webapp-react',
+		demo: 'https://ticket-webapp-react-eight.vercel.app/',
+		image: '/ticket-webapp.jpeg',
+		category: 'frontend',
+		featured: false,
+		year: 2025,
+		status: 'live'
+	},
+	{
+		id: 'testable-todo-card',
+		title: 'Todo Card',
+		description: 'Interactive and accessible Todo Card featuring editing, status management, and real-time due date tracking.',
+		longDescription: 'A state-driven Todo Card application built for HNG Internship Stage 1. The project includes task editing, synchronized status transitions, expandable descriptions, granular time tracking, and dynamic visual feedback based on task state and priority. Designed with accessibility in mind, it implements proper keyboard navigation, ARIA attributes, focus management, and semantic forms to deliver an inclusive and polished user experience.',
+		tech: ['HTML5', 'CSS3', 'JavaScript', 'Accessibility (ARIA)', 'CSS Variables', 'Flexbox', 'Grid'],
+		github: 'https://github.com/C3Techie/testable-todo-card',
+		demo: 'https://c3techie.github.io/testable-todo-card/',
+		image: '/todo-card.jpeg',
+		category: 'frontend',
+		featured: false,
+		year: 2026,
+		status: 'live'
+	},
+	{
+		id: 'framez',
+		title: 'Framez Mobile',
+		description: 'Modern social media mobile application for moment sharing and connection.',
+		longDescription: 'A cross-platform social media app built with React Native and Expo. Features include real-time feeds, image uploads to Firebase, and secure user authentication.',
+		tech: ['React Native', 'Firebase', 'TypeScript', 'Expo'],
+		github: 'https://github.com/C3Techie/Framez',
 		demo: '#',
-		image: 'https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa?auto=format&fit=crop&q=80&w=1000',
+		image: 'https://images.unsplash.com/photo-1516251193007-45ef944ab0c6?auto=format&fit=crop&q=80&w=1000',
 		category: 'frontend',
 		featured: false,
 		year: 2025,

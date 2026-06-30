@@ -12,8 +12,9 @@
 	import gsap from 'gsap';
 	import { onMount } from 'svelte';
 
-	const slug = page.params.slug;
-	const project = projects.find(p => p.id === slug);
+	const slug = $derived(page.params.slug);
+	const project = $derived(projects.find(p => p.id === slug));
+	const targetUrl = $derived(project ? (project.demo !== '#' ? project.demo : (project.github !== '#' ? project.github : '')) : '');
 
 	onMount(() => {
 		if (project) {
@@ -67,10 +68,17 @@
 				</div>
 
 				<div class="relative w-full aspect-video rounded-xl overflow-hidden border border-outline-variant mb-[64px] group shadow-2xl">
-					<img src={project.image} alt={project.title} class="w-full h-full object-cover" />
-					<div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent"></div>
+					{#if targetUrl}
+						<a href={targetUrl} target="_blank" rel="noopener noreferrer" class="block w-full h-full">
+							<img src={project.image} alt={project.title} class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+							<div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent"></div>
+						</a>
+					{:else}
+						<img src={project.image} alt={project.title} class="w-full h-full object-cover" />
+						<div class="absolute inset-0 bg-gradient-to-t from-surface/80 to-transparent"></div>
+					{/if}
 					
-					<div class="absolute bottom-[24px] right-[24px] flex gap-[12px]">
+					<div class="absolute bottom-[24px] right-[24px] flex gap-[12px] z-10">
 						{#if project.github !== '#'}
 							<a href={project.github} target="_blank" class="flex items-center gap-[8px] px-[20px] py-[10px] bg-surface-container/90 backdrop-blur border border-outline-variant rounded-full text-on-surface hover:bg-primary-fixed-dim hover:text-on-primary-fixed transition-all shadow-lg">
 								<Github size={18} />

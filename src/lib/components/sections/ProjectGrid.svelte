@@ -90,14 +90,15 @@
 	<!-- Project Grid -->
 	<div class="grid grid-cols-1 md:grid-cols-2 gap-[24px] w-full max-w-6xl">
 		{#each filteredProjects as project (project.id)}
+			{@const targetUrl = project.demo !== '#' ? project.demo : (project.github !== '#' ? project.github : '')}
 			<div class="project-card opacity-0 group relative flex flex-col bg-surface-container/30 backdrop-blur-sm border border-outline-variant rounded-lg overflow-hidden hover:border-primary-fixed-dim transition-all duration-500">
 				
 				<!-- Hover Glow -->
 				<div class="absolute inset-0 bg-primary-fixed-dim/0 group-hover:bg-primary-fixed-dim/5 transition-colors duration-500 pointer-events-none z-0"></div>
 				
 				<!-- Image Container -->
-				<a href="/projects/{project.id}" class="relative h-[240px] md:h-[300px] w-full overflow-hidden border-b border-outline-variant/50 block">
-					<div class="absolute inset-0 bg-surface/40 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+				<div class="relative h-[240px] md:h-[300px] w-full overflow-hidden border-b border-outline-variant/50 block">
+					<div class="absolute inset-0 bg-surface/40 group-hover:bg-transparent transition-colors duration-500 z-10 pointer-events-none"></div>
 					<img 
 						src={project.image} 
 						alt={project.title} 
@@ -110,24 +111,22 @@
 							{project.year} // {project.status}
 						</span>
 					</div>
-				</a>
+				</div>
 
 				<!-- Content -->
-				<div class="flex flex-col flex-grow p-[24px] relative z-10">
+				<div class="flex flex-col flex-grow p-[24px] relative">
 					<div class="flex items-start justify-between gap-[16px] mb-[12px]">
 						<div>
 							<span class="font-mono text-[10px] text-secondary-fixed-dim uppercase tracking-widest block mb-[4px]">
 								sys.{project.category}
 							</span>
-							<a href="/projects/{project.id}">
-								<h3 class="font-display text-[24px] text-on-surface font-bold tracking-tight group-hover:text-primary-fixed-dim transition-colors">
-									{project.title}
-								</h3>
-							</a>
+							<h3 class="font-display text-[24px] text-on-surface font-bold tracking-tight group-hover:text-primary-fixed-dim transition-colors">
+								{project.title}
+							</h3>
 						</div>
 						
 						<!-- Action Links -->
-						<div class="flex gap-[12px]">
+						<div class="flex gap-[12px] relative z-20">
 							{#if project.github !== '#'}
 								<a href={project.github} target="_blank" rel="noopener noreferrer" class="text-outline hover:text-primary-fixed-dim transition-colors" aria-label="GitHub Repository">
 									<Github size={20} />
@@ -154,6 +153,11 @@
 						{/each}
 					</div>
 				</div>
+
+				<!-- Stretched Link -->
+				{#if targetUrl}
+					<a href={targetUrl} target="_blank" rel="noopener noreferrer" class="absolute inset-0 z-10 block cursor-pointer" aria-label="View {project.title}"></a>
+				{/if}
 			</div>
 		{/each}
 	</div>
