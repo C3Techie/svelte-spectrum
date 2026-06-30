@@ -141,20 +141,6 @@ export const projects: Project[] = [
 		status: 'live'
 	},
 	{
-		id: 'testable-todo-card',
-		title: 'Todo Card',
-		description: 'Interactive and accessible Todo Card featuring editing, status management, and real-time due date tracking.',
-		longDescription: 'A state-driven Todo Card application built for HNG Internship Stage 1. The project includes task editing, synchronized status transitions, expandable descriptions, granular time tracking, and dynamic visual feedback based on task state and priority. Designed with accessibility in mind, it implements proper keyboard navigation, ARIA attributes, focus management, and semantic forms to deliver an inclusive and polished user experience.',
-		tech: ['HTML5', 'CSS3', 'JavaScript', 'Accessibility (ARIA)', 'CSS Variables', 'Flexbox', 'Grid'],
-		github: 'https://github.com/C3Techie/testable-todo-card',
-		demo: 'https://c3techie.github.io/testable-todo-card/',
-		image: '/todo-card.jpeg',
-		category: 'frontend',
-		featured: false,
-		year: 2026,
-		status: 'live'
-	},
-	{
 		id: 'framez',
 		title: 'Framez Mobile',
 		description: 'Modern social media mobile application for moment sharing and connection.',
